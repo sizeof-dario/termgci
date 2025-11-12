@@ -7,4 +7,5 @@ add_executable(termgci_test)
 target_sources(termgci_test
   PRIVATE
     main.c
+    termgci.c
 )

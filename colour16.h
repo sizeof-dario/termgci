@@ -1,17 +1,16 @@
-/******************************************************************************//**
+/**************************************************************************************************//**
  * 
  * @file colour16.h
  * 
- * @brief Contains the typedef of the @ref colour16_t type,
- *        along with the macro definition of its size and intended possible values.
+ * @brief Contains the typedef of the @ref colour16_t type, along with the macro definition of its size
+ *        and intended possible values.
  * 
  * @details The @ref colour16_t type is based on the 8–16 colours set.
- *          Such set contains 34 ANSI escape codes that tell the terminal to change
- *          its background or foreground colours.
- *          The 8-16 colours codes are not absolute, that is, their appereance can
- *          slightly vary, depending on the terminal.
- *          These are the 8 non-bright colours that will be displayed in an Ubuntu
- *          virtual terminal:
+ *          Such set contains 34 ANSI escape codes that tell the terminal to change its background or
+ *          foreground colours.
+ *          The 8-16 colours codes are not absolute, that is, their appereance can slightly vary,
+ *          depending on the terminal.
+ *          These are the 8 non-bright colours that will be displayed in an Ubuntu virtual terminal:
  *          <pre>
  *          Black:   <span class = "color-swatch" style = "background-color: #010101;"></span>
  *          Red:     <span class = "color-swatch" style = "background-color: #DE382B;"></span>
@@ -23,8 +22,7 @@
  *          White:   <span class = "color-swatch" style = "background-color: #CCCCCC;"></span>
  *          </pre>
  *          
- *          These are their bright counterparts (still as they are displayed in an
- *          Ubuntu virtual terminal):
+ *          These are their bright counterparts (still as in an Ubuntu virtual terminal):
  *          <pre>
  *          Bright black:   <span class = "color-swatch" style = "background-color: #808080;"></span>
  *          Bright red:     <span class = "color-swatch" style = "background-color: #FF0000;"></span>
@@ -36,18 +34,18 @@
  *          Bright white:   <span class = "color-swatch" style = "background-color: #FFFFFF;"></span>
  *          </pre>
  * 
- **********************************************************************************/
+ ******************************************************************************************************/
 
 #ifndef COLOUR16_H
 #define COLOUR16_H
 
-#define C16SIZE 6 /**< Size of the @ref colour16_t type. */
+#define C16_SIZE 6 /**< Size of the @ref colour16_t type. */
 
 /**
  * Type intended to assume one of the 34 possible ANSI escape codes that allow for
  * setting the colour of terminal cells accordingly to the 8-16 colour set.
  */
-typedef char colour16_t[C16SIZE];
+typedef char colour16_t[C16_SIZE];
 
 #define C16_FG_BLACK      "\e[030m"
 #define C16_FG_RED        "\e[031m"
