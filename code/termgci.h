@@ -9,8 +9,6 @@
 #ifndef TERMGCI_H
 #define TERMGCI_H
 
-#include "colour16.h"
-
 /**
  * Represents a terminal cell whose possible foreground and background colours are part of the 8-16 colours set.
  */
