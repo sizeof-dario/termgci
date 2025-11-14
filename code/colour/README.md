@@ -1,32 +1,40 @@
-# Colour handling
+# Colour
 
 One of the first major feature of this library is the possibility to change the colours of text and its background in a terminal.
 
-> **Not a mandatory read, but if you're into jargons:** colours do not belong to the characters displayed themselves.
-> There's not such thing as a "_blue `'a'` character_" or a "_`'b'`-with-red-background chraracter_".
+This README will go through what you need to know about using colours in terminals and, for its last section, about how you can directly play with it
+using this library functions. Consider tho that those really are _base_ functions so, for more complex stuff, there may be other functions in this
+library that could do the job for you!
+
+First of all, here's a:
+
+> **Not mandatory read, but if you're into jargons:** colours do not belong to the characters displayed themselves.
+> There's not such thing as a "_blue 'a' character_" or a "_'b'-with-red-background chraracter_".
 > Everything concerning the appereance of text, therefore colours as well, is handled by the terminal
 > and it's more of a "graphical artifice" played by the latter.
 >
-> This means that, technically, you can't write code to "print a green `'c'`". You should first have to set the foreground colour (that is, the colour of the text)
+> This means that, technically, you can't write code to "print a green 'c'". You should first have to set the foreground colour (that is, the colour of the text)
 > to green, and then go with a `printf("c");`. However, both for simplicity and because this is not relevant for a correct usage of the library functions,
-> in the rest of this repository I address colours as a property of characters and I might say things like "_printing a yellow `'d'` with a magenta background_".
+> in the rest of this repository I address colours as a property of characters and I might say things like "_printing a yellow 'd' with a magenta background_".
 
 There are four sets of colours that are not equally supported by all terminals, each one being a superset of the previous one:
 
 <div align = "center">
  
-| Colour set         | Other names            | Supported on [^1]                                    | <ins>Not</ins> supported on [^1][^2] |
-| :---               | :---                   | :---                                                 | :---                                 |
-| **8 colours**      |                        | TTY Linux, GNOME Terminal, Windows Terminal          |                                      |
-| **16 colours**     | 8–16 colours           | TTY Linux (<ins>partially</ins>[^3]), GNOME Terminal |                                      |
-| **256 colours**    | 8-bit colours          | GNOME Terminal, Windows Terminal                     | TTY Linux                            |
-| **24-bit colours** | Truecolor, RGB colours | GNOME Terminal, Windows Terminal                     | TTY Linux                            |
+| Colour set         | Other names            | Supported on [^1]                                    | <ins>Not</ins> supported on [^1] |
+| :---               | :---                   | :---                                                 | :---                             |
+| **8 colours**      |                        | TTY Linux, GNOME Terminal, Windows Terminal          |                                  |
+| **16 colours**     | 8–16 colours           | TTY Linux (<ins>partially</ins>[^3]), GNOME Terminal |                                  |
+| **256 colours**    | 8-bit colours          | GNOME Terminal, Windows Terminal                     | TTY Linux                        |
+| **24-bit colours** | Truecolor, RGB colours | GNOME Terminal, Windows Terminal                     | TTY Linux                        |
 
 </div>
 
 [^1]: These are just **some** examples, obtained via **personal** testing, so they could be inaccurate and they're not exhaustive at all.
-[^2]: Trying to use a colour from an unsupported set results in it getting approximated to its closest match in the biggest supported set.
-[^3]: Only for foreground colours.
+[^2]: Only for foreground colours.
+
+<ins>If you try to use a colour on a terminal that doesn't support it</ins>, nothing bad will happen anyway, <ins>it will</ins> just 
+<ins>get approximated by its closest supported colour</ins>.
 
 The following sections will discuss the abovementioned sets. If you are interested in the details behind the implementation, know that
 the _change-colour-commands_ are implemented via [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797).
@@ -69,13 +77,9 @@ As you can see, the difference between terminals (also considering editor/IDEs' 
 
 ## The 16 colours set
 
-This set of colours is the most widely supported set. It includes 8 colours with their bright counterparts for a total of 16 (whence the name),
-both for the foreground and the background of text.
+This set expands the **8 colours** one with 8 new colours that are the bright versions of the already existing ones, both for the foreground and the background of text.
 
-> **A very <ins>important</ins> thing to know:** this set's colours are <ins>not</ins> absolute.
-> That is, they do not correspond to the same colours for all terminals. Rather, every terminal uses usually slightly – yet different – implementations.
-
-The colours are listed below in the table[^5]:
+These colours are <ins>still relative</ins> to the terminal. THey are listed below in the table, shown as how they appear in the GNOME Terminal:
 <div align = "center">
  
 | Colour    | Swatch                                          |RGB value      |HEX value| Colour           | Swatch                                          |RGB value      |HEX value|
@@ -89,16 +93,17 @@ The colours are listed below in the table[^5]:
 |**Cyan**   |![](https://placehold.co/60x15/2AA1B3/2AA1B3.png)|` 42, 161, 179`|`#2AA1B3`|**Bright cyan**   |![](https://placehold.co/60x15/33C7DE/33C7DE.png)|` 51, 199, 222`|`#33C7DE`|
 |**White**  |![](https://placehold.co/60x15/D0CFCC/D0CFCC.png)|`208, 207, 204`|`#D0CFCC`|**Bright white**  |![](https://placehold.co/60x15/FFFFFF/FFFFFF.png)|`255, 255, 255`|`#FFFFFF`|
 </div>
-Also, this is how they look in the GNOME Terminal:
+
+As you can see, the first 8 colours match – and are in fact the same – the second column of the table in the **8 colours set** section.
+Also, this is how they look when used in the GNOME Terminal:
 <div align = "center">
  
 ![](.assets/16-colour-set.png)
 </div>
 
-[^5]: As for the swatches and the RGB and HEX values, they refer to the GNOME Terminal implementation of the colour set (as they also match the image following the table).
-
 ## The 256 colours set
 ## The 24-bit colours set
+
 
 
 
