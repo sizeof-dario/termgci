@@ -73,6 +73,12 @@ For example, the following table shows their appereance in the terminals I could
 
 As you can see, the difference between terminals (also considering editor/IDEs' ones) is relatively visible, especially with certain colours like yellow, so keep that in mind when designing your applications!
 
+Before moving to the **16 colours set**, this is how this set colours appear when used in the TTY Linux:
+
+<div align = "center">
+![](.assets/colour-8-tty.png);
+</div>
+
 [^4]: With the **Dark+** theme.
 
 ## The 16 colours set
