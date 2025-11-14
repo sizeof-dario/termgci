@@ -26,7 +26,7 @@ There are four sets of colours that are not equally supported by all terminals, 
 
 [^1]: These are just **some** examples, obtained via **personal** testing, so they could be inaccurate and they're not exhaustive at all.
 [^2]: Trying to use a colour from an unsupported set results in it getting approximated to its closest match in the biggest supported set.
-[^3]: Command Prompt, Windows PowerShell, PowerShell Core and PowerSHell 7.
+[^3]: Command Prompt, Windows PowerShell, PowerShell Core and PowerShell 7.
 [^4]: Only for foreground colours.
 
 
@@ -99,6 +99,7 @@ Also, this is how they look in the GNOME Terminal:
 
 ## The 256 colours set
 ## The 24-bit colours set
+
 
 
 
