@@ -15,18 +15,20 @@ There are four sets of colours that are not equally supported by all terminals, 
 
 <div align = "center">
  
-| Colour set         | Other names            | Supported on [^1]                              | <ins>Not</ins> supported on [^1][^2] |
-| :---               | :---                   | :---                                           | :---                                 |
-| **8 colours**      |                        | TTY Linux, GNOME Terminal, VSCode terminal     |                                      |
-| **16 colours**     | 8–16 colours           | TTY Linux[^3], GNOME Terminal, VSCode terminal |                                      |
-| **256 colours**    | 8-bit colours          | GNOME Terminal, VSCode terminal                | TTY Linux                            |
-| **24-bit colours** | Truecolor, RGB colours | GNOME Terminal, VSCode terminal                | TTY Linux                            |
+| Colour set         | Other names            | Supported on [^1]                                    | <ins>Not</ins> supported on [^1][^2] |
+| :---               | :---                   | :---                                                 | :---                                 |
+| **8 colours**      |                        | TTY Linux, GNOME Terminal, Windows shells[^3]        |                                      |
+| **16 colours**     | 8–16 colours           | TTY Linux (<ins>partially</ins>[^4]), GNOME Terminal |                                      |
+| **256 colours**    | 8-bit colours          | GNOME Terminal, VSCode terminal                      | TTY Linux                            |
+| **24-bit colours** | Truecolor, RGB colours | GNOME Terminal, VSCode terminal                      | TTY Linux                            |
 
 </div>
 
 [^1]: These are just **some** examples, obtained via **personal** testing, so they could be inaccurate and they're not exhaustive at all.
 [^2]: Trying to use a colour from an unsupported set results in it getting approximated to its closest match in the biggest supported set.
-[^3]: Only for foreground colours.
+[^3]: Command Prompt, Windows PowerShell and PowerShell.
+[^4]: Only for foreground colours.
+
 
 The following sections will discuss the abovementioned sets. If you are interested in the details behind the implementation, know that
 the _change-colour-commands_ are implemented via [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797).
@@ -51,16 +53,18 @@ For example, the following table shows their appereance in the terminals I could
 
 <div align = "center">
 
-| Colour    | TTY Linux                                       | GNOME Terminal                                  | cmd   | PowerShell |
-| :---      | :---:                                           | :---:                                           | :---: | :---:      |
-|**Black**  |![](https://placehold.co/60x15/010101/010101.png)|![](https://placehold.co/60x15/171421/171421.png)|       |            |
-|**Red**    |![](https://placehold.co/60x15/DE382B/DE382B.png)|![](https://placehold.co/60x15/C01C28/C01C28.png)|       |            |
-|**Green**  |![](https://placehold.co/60x15/39B54A/39B54A.png)|![](https://placehold.co/60x15/26A269/26A269.png)|       |            |
-|**Yellow** |![](https://placehold.co/60x15/FFC706/FFC706.png)|![](https://placehold.co/60x15/A2734C/A2734C.png)|       |            |
-|**Blue**   |![](https://placehold.co/60x15/006FB8/006FB8.png)|![](https://placehold.co/60x15/12488B/12488B.png)|       |            |
-|**Magenta**|![](https://placehold.co/60x15/762671/762671.png)|![](https://placehold.co/60x15/A347BA/A347BA.png)|       |            |
-|**Cyan**   |![](https://placehold.co/60x15/2CB5E9/2CB5E9.png)|![](https://placehold.co/60x15/2AA1B3/2AA1B3.png)|       |            |
-|**White**  |![](https://placehold.co/60x15/CCCCCC/CCCCCC.png)|![](https://placehold.co/60x15/D0CFCC/D0CFCC.png)|`      |            |
+
+
+| Colour    | TTY Linux                                       | GNOME Terminal                                  | Windows Shells[^4]                              |
+| :---      | :---:                                           | :---:                                           | :---:                                           |
+|**Black**  |![](https://placehold.co/60x15/010101/010101.png)|![](https://placehold.co/60x15/171421/171421.png)|![](https://placehold.co/60x15/0C0C0C/0C0C0C.png)|
+|**Red**    |![](https://placehold.co/60x15/DE382B/DE382B.png)|![](https://placehold.co/60x15/C01C28/C01C28.png)|![](https://placehold.co/60x15/C50F1F/C50F1F.png)|
+|**Green**  |![](https://placehold.co/60x15/39B54A/39B54A.png)|![](https://placehold.co/60x15/26A269/26A269.png)|![](https://placehold.co/60x15/13A10E/13A10E.png)|
+|**Yellow** |![](https://placehold.co/60x15/FFC706/FFC706.png)|![](https://placehold.co/60x15/A2734C/A2734C.png)|![](https://placehold.co/60x15/C19C00/C19C00.png)|
+|**Blue**   |![](https://placehold.co/60x15/006FB8/006FB8.png)|![](https://placehold.co/60x15/12488B/12488B.png)|![](https://placehold.co/60x15/0037DA/0037DA.png)|
+|**Magenta**|![](https://placehold.co/60x15/762671/762671.png)|![](https://placehold.co/60x15/A347BA/A347BA.png)|![](https://placehold.co/60x15/881798/881798.png)|
+|**Cyan**   |![](https://placehold.co/60x15/2CB5E9/2CB5E9.png)|![](https://placehold.co/60x15/2AA1B3/2AA1B3.png)|![](https://placehold.co/60x15/3A96DD/3A96DD.png)|
+|**White**  |![](https://placehold.co/60x15/CCCCCC/CCCCCC.png)|![](https://placehold.co/60x15/D0CFCC/D0CFCC.png)|![](https://placehold.co/60x15/CCCCCC/CCCCCC.png)|
 </div>
 
 ## The 16 colours set
@@ -95,6 +99,7 @@ Also, this is how they look in the GNOME Terminal:
 
 ## The 256 colours set
 ## The 24-bit colours set
+
 
 
 
