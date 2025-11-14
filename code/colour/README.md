@@ -58,6 +58,14 @@ I picked the GNOME Terminal one:
 
 </div>
 
+Below, you can also see how such colours appear in the actual GNOME Terminal:
+
+<div  align = "center">
+
+![](.assets/16-colour-set.png)
+
+</div>
+
 ## The 256 colours set
 ## The 24-bit colours set
 
