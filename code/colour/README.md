@@ -2,7 +2,7 @@
 
 One of the first major feature of this library is the possibility to change the colours of text and its background in a terminal.
 
-This README will go through what you need to know about using colours in terminals and, for its last section, about how you can directly play with it
+This README will go through what you need to know about using colours in terminals and, as for its last section, about how you can directly play with it
 using this library functions. Consider tho that those really are _base_ functions so, for more complex stuff, there may be other functions in this
 library that could do the job for you!
 
@@ -36,7 +36,7 @@ There are four sets of colours that are not equally supported by all terminals, 
 [^2]: Only for foreground colours.
 
 <ins>If you try to use a colour on a terminal that doesn't support it</ins>, nothing bad will happen anyway, <ins>it will</ins> just 
-<ins>get approximated by its closest supported colour</ins>.
+<ins>get approximated with its closest supported colour</ins>.
 
 The following subsections will discuss the abovementioned sets. If you are interested in the details behind the implementation, know that
 the _change-colour-commands_ are implemented via [ANSI escape sequences](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797).
@@ -73,9 +73,9 @@ For example, the following table shows their appereance in the terminals I could
 |**White**  |![](https://placehold.co/60x15/CCCCCC/CCCCCC.png)|![](https://placehold.co/60x15/D0CFCC/D0CFCC.png)|![](https://placehold.co/60x15/CCCCCC/CCCCCC.png)|![](https://placehold.co/60x15/E5E5E5/E5E5E5.png)|
 </div>
 
-As you can see, the difference between terminals (also considering editor/IDEs' ones) is relatively visible, especially with certain colours like yellow, so keep that in mind when designing your applications!
+As you can see, the difference between terminals (also considering editor/IDEs' ones) is relatively visible, especially with certain colours like yellow, so keep that in mind while designing your applications!
 
-Before moving to the **16 colours set**, this is how this set colours appear when used in the TTY Linux:
+Before moving to the **16 colours set**, for a more concrete reference, this is how this set's colours appear in the TTY Linux:
 
 <div align = "center">
  
@@ -103,7 +103,7 @@ These colours are <ins>still relative</ins> to the terminal. THey are listed bel
 |**White**  |![](https://placehold.co/60x15/D0CFCC/D0CFCC.png)|`208, 207, 204`|`#D0CFCC`|**Bright white**  |![](https://placehold.co/60x15/FFFFFF/FFFFFF.png)|`255, 255, 255`|`#FFFFFF`|
 </div>
 
-As you can see, the first 8 colours match – and are in fact the same – the second column of the table in the **8 colours set** section.
+As you can see, the first 8 colours match – and are in fact the same – the second column of the table in the **8 colours set** subsection.
 Also, this is how they look when used in the GNOME Terminal:
 <div align = "center">
  
@@ -114,6 +114,7 @@ Also, this is how they look when used in the GNOME Terminal:
 ### The 24-bit colours set
 
 ## Library colour functions
+
 
 
 
