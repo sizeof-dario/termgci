@@ -115,21 +115,24 @@ Also, this is how they look when used in the GNOME Terminal:
 
 ## Using the library
 
-Speaking of colours, the library defines the following four types:
+The first thing you need to know is that five types are defined:
+- `colour8_t`
 - `colour16_t`
 - `colour256_t`
 - `colour24b_t`
 - `colour_t`
 
-And also the following two functions:
-- **`int SetTerminalColour(**colour_t** colour);`**
-- **`int RestoreTerminalColour();`**
+> **colour8_t**: This type is used to store a colour from the **8 colours set**. Its intended value are defined as macros with the following rule:
+>
+> **FOREGROUND/BACKGROUND + _ + «COLOUR NAME»**
+> 
+> So, for example, you can use `FOREGROUND_RED` or `BACKGROUND_WHITE` and write code like this:
+> ```
+> colour8_t fg_colour = FOREGROUND_RED;
+> colour8_t bg_colour = BACKGROUND_WHITE;
+> ```
 
 
-If you want to directly change the background or foreground colour, you need to call
-```
-int SetTerminalColour( colour);
-```
 
 
 
