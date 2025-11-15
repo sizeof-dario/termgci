@@ -122,7 +122,7 @@ The first thing you need to know is that five types are defined:
 - `colour24b_t`
 - `colour_t`
 
-> **colour8_t**: This type is used to store a colour from the **8 colours set**. Its intended value are defined as macros with the following rule:
+> **colour8_t**: This type is used to store a colour from the **8 colours set**. Its intended values are defined as macros with the following rule:
 >
 > **FOREGROUND/BACKGROUND + _ + «COLOUR NAME»**
 > 
@@ -131,11 +131,19 @@ The first thing you need to know is that five types are defined:
 > colour8_t fg_colour = FOREGROUND_RED;
 > colour8_t bg_colour = BACKGROUND_WHITE;
 > ```
-
-
-
-
-
+> However these are, after all, strings, so this approach only works when you assign the value when initializing a colour8_t variable.
+> For postponed assignment – or reassigment – you need to use the `void AssignColour(colour_t colour, colour_t value)` function.
+> For now, ignore that this function asks for `colour_t` as type for its parameters, just know you can pass `colour8_t` (as well the other types,
+> <ins>**as long as you use the same type for both parameters**</ins>). So, you can write either
+>```
+> colour8_t colour1;
+> AssignColour(colour1, FOREGROUND_RED);
+> ```
+> or
+> ```
+> colour8_t colour2 = BACKGROUND_BLACK;
+> AssignColour(colour2, BACKGROUND_WHITE);
+> ```
 
 
 
