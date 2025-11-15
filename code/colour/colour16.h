@@ -1,90 +1,100 @@
-/**************************************************************************************************//**
+/*****************************************************************************
  * 
- * @file colour16.h
+ * Module name:
  * 
- * @brief Contains the typedef of the @ref colour16_t type, along with the macro definition of its size
- *        and intended possible values.
+ *      colour16.h
  * 
- * @details The @ref colour16_t type is based on the 8–16 colours set.
- *          Such set contains 34 ANSI escape codes that tell the terminal to change its background or
- *          foreground colours.
- *          The 8-16 colours codes are not absolute, that is, their appereance can slightly vary,
- *          depending on the terminal.
- *          These are the 8 non-bright colours that will be displayed in an Ubuntu virtual terminal:
- *          <pre>
- *          Black:   <span class = "color-swatch" style = "background-color: #010101;"></span>
- *          Red:     <span class = "color-swatch" style = "background-color: #DE382B;"></span>
- *          Green:   <span class = "color-swatch" style = "background-color: #39B54A;"></span>
- *          Yellow:  <span class = "color-swatch" style = "background-color: #FFC706;"></span>
- *          Blue:    <span class = "color-swatch" style = "background-color: #006FB8;"></span>
- *          Magenta: <span class = "color-swatch" style = "background-color: #6E2671;"></span>
- *          Cyan:    <span class = "color-swatch" style = "background-color: #2CB5E9;"></span>
- *          White:   <span class = "color-swatch" style = "background-color: #CCCCCC;"></span>
- *          </pre>
- *          
- *          These are their bright counterparts (still as in an Ubuntu virtual terminal):
- *          <pre>
- *          Bright black:   <span class = "color-swatch" style = "background-color: #808080;"></span>
- *          Bright red:     <span class = "color-swatch" style = "background-color: #FF0000;"></span>
- *          Bright green:   <span class = "color-swatch" style = "background-color: #00FF00;"></span>
- *          Bright yellow:  <span class = "color-swatch" style = "background-color: #FFFF00;"></span>
- *          Bright blue:    <span class = "color-swatch" style = "background-color: #0000FF;"></span>
- *          Bright magenta: <span class = "color-swatch" style = "background-color: #FF00FF;"></span>
- *          Bright cyan:    <span class = "color-swatch" style = "background-color: #00FFFF;"></span>
- *          Bright white:   <span class = "color-swatch" style = "background-color: #FFFFFF;"></span>
- *          </pre>
+ * Sinopsis:
  * 
- ******************************************************************************************************/
+ *      Contains the typedef of the colour16_t type and its associated macros.
+ * 
+ *****************************************************************************/
 
 #ifndef COLOUR16_H
 #define COLOUR16_H
 
-#define C16_SIZE 6 /**< Size of the @ref colour16_t type. */
+/************************************************/
+/*                                              */
+/*  0  1 2 3 4 5 6 → 7 characters → 7 bytes     */
+/*  \e [ - - - m \0                             */
+/*                                              */
+    #define COLOUR16_TYPESIZE 7                 //
+/*                                              */
+    typedef char colour16_t[COLOUR16_TYPESIZE]; //
+/*                                              */     
+/************************************************/
 
-/**
- * Type intended to assume one of the 34 possible ANSI escape codes that allow for
- * setting the colour of terminal cells accordingly to the 8-16 colour set.
- */
-typedef char colour16_t[C16_SIZE];
+/************************************************/
+/*                                              */
+/*      ↓↓↓↓      Colours macros      ↓↓↓↓      */
 
-#define C16_FG_BLACK      "\e[030m"
-#define C16_FG_RED        "\e[031m"
-#define C16_FG_GREEN      "\e[032m"
-#define C16_FG_YELLOW     "\e[033m"
-#define C16_FG_BLUE       "\e[034m"
-#define C16_FG_MAGENTA    "\e[035m"
-#define C16_FG_CYAN       "\e[036m"
-#define C16_FG_WHITE      "\e[037m"
+        // Foreground non-bright colours
 
-#define C16_FG_DEFAULT    "\e[039m"
+#define FOREGROUND_BLACK            "\e[030m"
+#define FOREGROUND_RED              "\e[031m"
+#define FOREGROUND_GREEN            "\e[032m"
+#define FOREGROUND_YELLOW           "\e[033m"
+#define FOREGORUND_BLUE             "\e[034m"
+#define FOREGROUND_MAGENTA          "\e[035m"
+#define FOREGROUND_CYAN             "\e[036m"
+#define FOREGROUND_WHITE            "\e[037m"
 
-#define C16_BG_BLACK      "\e[040m"
-#define C16_BG_RED        "\e[041m"
-#define C16_BG_GREEN      "\e[042m"
-#define C16_BG_YELLOW     "\e[043m"
-#define C16_BG_BLUE       "\e[044m"
-#define C16_BG_MAGENTA    "\e[045m"
-#define C16_BG_CYAN       "\e[046m"
-#define C16_BG_WHITE      "\e[047m"
+        // Foreground default
 
-#define C16_BG_DEFAULT    "\e[049m"
+#define FOREGROUND_DEFAULT          "\e[039m"
 
-#define C16_FG_BR_BLACK   "\e[090m"
-#define C16_FG_BR_RED     "\e[091m"
-#define C16_FG_BR_GREEN   "\e[092m"
-#define C16_FG_BR_YELLOW  "\e[093m"
-#define C16_FG_BR_BLUE    "\e[094m"
-#define C16_FG_BR_MAGENTA "\e[095m"
-#define C16_FG_BR_CYAN    "\e[096m"
-#define C16_FG_BR_WHITE   "\e[097m"
+        // Background non-bright colours
 
-#define C16_BG_BR_BLACK   "\e[100m"
-#define C16_BG_BR_RED     "\e[101m"
-#define C16_BG_BR_GREEN   "\e[102m"
-#define C16_BG_BR_YELLOW  "\e[103m"
-#define C16_BG_BR_BLUE    "\e[104m"
-#define C16_BG_BR_MAGENTA "\e[105m"
-#define C16_BG_BR_CYAN    "\e[106m"
-#define C16_BG_BR_WHITE   "\e[107m"
+#define BACKGROUND_BLACK            "\e[040m"
+#define BACKGROUND_RED              "\e[041m"
+#define BACKGROUND_GREEN            "\e[042m"
+#define BACKGROUND_YELLOW           "\e[043m"
+#define BACKGORUND_BLUE             "\e[044m"
+#define BACKGROUND_MAGENTA          "\e[045m"
+#define BACKGROUND_CYAN             "\e[046m"
+#define BACKGROUND_WHITE            "\e[047m"
+
+        // Background default
+
+#define BACKGROUND_DEFAULT          "\e[049m"
+
+        // Foreground bright colours
+
+#define FOREGROUND_BRIGHT_BLACK     "\e[090m"
+#define FOREGROUND_BRIGHT_RED       "\e[091m"
+#define FOREGROUND_BRIGHT_GREEN     "\e[092m"
+#define FOREGROUND_BRIGHT_YELLOW    "\e[093m"
+#define FOREGORUND_BRIGHT_BLUE      "\e[094m"
+#define FOREGROUND_BRIGHT_MAGENTA   "\e[095m"
+#define FOREGROUND_BRIGHT_CYAN      "\e[096m"
+#define FOREGROUND_BRIGHT_WHITE     "\e[097m"
+
+        // Background bright colours
+
+#define BACKGROUND_BRIGHT_BLACK     "\e[100m"
+#define BACKGROUND_BRIGHT_RED       "\e[101m"
+#define BACKGROUND_BRIGHT_GREEN     "\e[102m"
+#define BACKGROUND_BRIGHT_YELLOW    "\e[103m"
+#define BACKGORUND_BRIGHT_BLUE      "\e[104m"
+#define BACKGROUND_BRIGHT_MAGENTA   "\e[105m"
+#define BACKGROUND_BRIGHT_CYAN      "\e[106m"
+#define BACKGROUND_BRIGHT_WHITE     "\e[107m"
+
+/*      ↑↑↑↑      Colours macros      ↑↑↑↑      */
+/*                                              */
+/************************************************/
+
+// There is not reason to define colour8_t in another header file
+//  since it uses the same escape sequences of colour16_t.
+// Moreover, it's unlikely someone will need to use the proper 8 colours set.
+//
+// However, just for the sake of completeness,
+//  I'll add the following three lines of code:
+
+#define COLOUR8_H
+#define COLOUR8_TYPESIZE 7
+typedef char colour8_t [COLOUR8_TYPESIZE];
+
+// It took forever, like, 30 seconds at most.
 
 #endif // COLOUR16_H
