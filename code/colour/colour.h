@@ -9,6 +9,14 @@
 
 typedef char *colour_t;
 
+enum colourset
+{
+    COLOUR8, 
+    COLOUR16, 
+    COLOUR256, 
+    COLOUR24B
+};
+
 static inline int SetTerminalColour(colour_t colour)
 {
     return printf("%s", colour);
