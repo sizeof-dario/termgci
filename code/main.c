@@ -4,9 +4,14 @@
 
 int main()
 {
-    SetTerminalColour(FOREGROUND_BRIGHT_YELLOW);
+
+    colour8_t colour = FOREGROUND_BLUE;
+
+    AssignColour(colour, FOREGROUND_RED);
+
+    SetTerminalColour(colour);
 
     printf("Hello World!\n");
-    
+
     RestoreTerminalColour();
 }

@@ -17,6 +17,8 @@ enum colourset
     COLOUR24B
 };
 
+void AssignColour(colour_t colour, colour_t value);
+
 static inline int SetTerminalColour(colour_t colour)
 {
     return printf("%s", colour);
